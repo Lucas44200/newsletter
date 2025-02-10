@@ -1,0 +1,25 @@
+name: Run Python Script Weekly
+
+on:
+  schedule:
+    - cron: "0 12 * * 1"  # Exécute tous les lundis à 12h UTC
+  workflow_dispatch:  # Permet de lancer le workflow manuellement
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt  # Installe les dépendances (si tu en as)
+
+      - name: Run script
+        run: python newsletter.py  # Lance ton script
