@@ -1,4 +1,3 @@
 psycopg2
 google-generativeai
-smtplib
 email
